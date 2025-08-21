@@ -91,7 +91,7 @@ def is_passable(cell):
     return cell == 1 or cell == 'S' or cell == 'E'
 
 #deep firs search algorithem אלגוריתם חיפוש לעומק
-
+#using recursion
 def DFS(current_row, current_col, maze_End, maze, visited):
                 #   up      down    right    left
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
@@ -108,7 +108,7 @@ def DFS(current_row, current_col, maze_End, maze, visited):
                 if is_passable(maze[next_row][next_col]):
                     if (next_row, next_col) not in visited:
                         mark_visited(next_row, next_col, visited)
-
+                        #cheks if the point is the Exit if not it puts '*'
                         if DFS(next_row, next_col, maze_End, maze, visited):
                             if maze[current_row][current_col] not in ('S', 'E'):
                                 maze[current_row][current_col] = '*'
@@ -157,3 +157,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
